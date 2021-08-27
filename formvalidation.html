@@ -14,7 +14,7 @@
         <label  id="pw">..</label>
         <input type="text" name="password "  placeholder="password"><br>
         <label  id= "phno">..</label>
-        <input type="text"  name="phone"  placeholder="phone"><br><br>
+        <input type="text"  name="phon"  placeholder="phone"><br><br>
         <input type="submit" value="Submit">
         </form>
     </div>
@@ -57,7 +57,7 @@
                 }
                  }
                  //phone validation
-                 var ph=document.forms["myform"]["phone"].value;
+                 var ph=document.forms["myform"]["phon"].value;
                  var pho=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
                  if(ph==""){
                     document.getElementById("phno").style.color="red"; 
