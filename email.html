@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation</title>
+</head>
+<body>
+    <div class=" validation">
+        <form action="" name="myform" onsubmit="validateform()">
+        
+        <input type="text" name="email"  placeholder="email"><br>
+        <input type="text" name="password " id="pwd" placeholder="password"><br>
+        <input type="text"  name="phone"  placeholder="phone"><br>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+    <script>
+        function validateform(){
+
+        var atsymbol=myform.email.indexOf("@");
+        if(atsymbol<1){
+        return false;
+        alert("give validate email");
+        }
+        var dot=email1.indexOf(".");
+        if(dot<atsymbol+2){
+            return false;
+            alert("give validate email");
+        }
+        var phoneno=document.myform.phone.value;
+        
+        if(isNan(phoneno)){
+            alert("accept numbers only");
+        }
+        else if(phoneno!=10){
+            alert("telephone number must be ten digits");
+
+        }
+       
+
+        } 
+    </script>
+</body>
+</html>

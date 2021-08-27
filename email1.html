@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform" onsubmit="myemail" >
+        <input type="text" name="email">
+        <label id="ema"></label>
+        <input type="submit" value="submit">
+    </form>
+    <script>
+        function myemail(){
+             var em=document.forms["myform"]["email"].value;
+             var  reg=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+             if(reg.test(em)){
+                 return true;
+             }
+             else{
+                 var at=em.search('@');
+                 
+                    if(at==-1){
+                    document.getElementById("ema").style.color="red";               
+                    document.getElementById("ema").innerHTML="@is missing"; 
+                }
+                else{
+                    document.getElementById("ema").style.color="red";               
+                    document.getElementById("ema").innerHTML="invalid email";
+                }
+                 }
+                }
+        </script>
+</body>
+</html>

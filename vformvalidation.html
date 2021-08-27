@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <form name="myform"  onsubmit="validatemyform();return false">
+        <label id="email1">..</label>
+        <input type="text" name="email"  placeholder="email"><br>
+        <label  id="pw">..</label>
+        <input type="text" name="password "  placeholder="password"><br>
+        <label  id= "phno">..</label>
+        <input type="text"  name="phone"  placeholder="phone"><br><br>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        function validatemyform()
+        {
+            var pass=document.forms["myform"]["password"].value;
+            let strongPassword=new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+            let mediumPassword= new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+           if(strongPassword.test(pass)){
+               document.getElementById("pw").style.color="green";
+               document.getElementById("pw").innerHTML="strong password";
+                    
+            }
+            else if(mediumPassword.test(pass)){
+            document.getElementById("pw").style.color="blue";
+               document.getElementById("pw").innerHTML="medium password";
+           }
+           else{
+            document.getElementById("pw").style.color= 'red';
+            document.getElementById("pw").innerHTML="Weak password"; 
+             }
+        //email validation
+             
+            var em=document.forms['myform']["email"].value;
+             var  reg=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+             if(reg.test(em)){
+                 return true;
+             }
+             else{
+                 var at=em.search('@');
+                 
+                    if(at==-1){
+                    document.getElementById("email1").style.color="red";               
+                    document.getElementById("email1").innerHTML="@is missing"; 
+                }
+                else{
+                    document.getElementById("email1").style.color="red";               
+                    document.getElementById("email1").innerHTML="invalid email";
+                }
+                 }
+                 //phone validation
+                 var ph=document.forms["myform"]["phone"].value;
+                 var pho=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                 if(ph==""){
+                    document.getElementById("phno").style.color="red"; 
+                     document.getElementById("phno").innerHTML="phone is required";
+                 }
+                 if(pho.test(ph)){
+                     return true;
+                 }
+                 else{
+                     if(ph.length!=10){
+                         document.getElementById("phno").style.color="red";
+                         document.getElementById("phno").style.color="enter 10 digits";
+                     }
+                     else{
+                        
+                    document.getElementById("phno").style.color="red";               
+                    document.getElementById("phno").innerHTML="invalid phone number";
+                }
+                     }
+                 }
+             
+           
+        
+    </script>
+</body>
+</html>
